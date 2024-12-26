@@ -1,11 +1,8 @@
 name: Status Check Functions
 on: push
 jobs:
-  fail:
+  may-skip:
     runs-on: ubuntu-latest
+    if: ${{ true }}
     steps:
-      - run: exit 0
-      - run: echo "Failed condition"
-        if: ${{ failure() }}
-      - run: echo "Successed condition"
-        if: ${{ success() }}
+      - run: echo "run"

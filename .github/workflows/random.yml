@@ -1,0 +1,8 @@
+name: Conditions
+on: workflow_dispatch
+jobs:
+  skip-or-run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Run"
+        if: ${{ contains(github.run_id, '1') }}

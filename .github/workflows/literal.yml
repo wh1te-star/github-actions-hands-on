@@ -1,9 +1,11 @@
-name: Literals
+name: Functions
 on: push
 jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${OBJFILTER}"
+      - run: printenv | grep '_FUNC'
         env:    
-          OBJFILTER: ${{ github.event.*.html_url }}
+          CONTAINS_FUNC: ${{ contains('Hello', 'ell') }}
+          STARTS_WITH_FUNC: ${{ startsWith('Hello', 'He') }}
+          ENDS_WITH_FUNC: ${{ endsWith('Hello', 'lo') }}

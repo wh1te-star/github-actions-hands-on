@@ -6,7 +6,5 @@ jobs:
     steps:
       - run: printenv | grep '_FUNC'
         env:    
-          CONTAINS_ARRAY_FUNC: ${{ contains(github.event.issue.labels.*.name, 'bug') }}
-          CONTAINS_FUNC: ${{ contains('Hello', 'ell') }}
-          STARTS_WITH_FUNC: ${{ startsWith('Hello', 'He') }}
-          ENDS_WITH_FUNC: ${{ endsWith('Hello', 'lo') }}
+          FORMAT_FUNC: ${{ format('{0}, {1}', 'format1', 'format2') }}
+          JOIN_FUNC: ${{ join(github.event.*.html_url, ', ') }}

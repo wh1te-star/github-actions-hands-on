@@ -1,11 +1,13 @@
 name: Static analysis
 on:
   pull_request:
-    paths: ['.github/workflows/*.yml', '.github/workflows/*.yaml']
+    paths:
+      - '.github/workflows/*.yml'
+      - '.github/workflows/*.yaml'
 defaults:
   run:
     shell: bash
-concurrentcy:
+concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:

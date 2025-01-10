@@ -1,8 +1,0 @@
-name: Status Check Functions
-on: push
-jobs:
-  may-skip:
-    runs-on: ubuntu-latest
-    if: ${{ false }}
-    steps:
-      - run: echo "run"

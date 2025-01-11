@@ -8,7 +8,7 @@ jobs:
           - os: ubuntu-latest
             version: 20
           - os: macos-latest
-            versoin: 18
+            version: 18
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/setup-node@v4

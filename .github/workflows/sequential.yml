@@ -1,4 +1,4 @@
-name: Parallel jobs
+name: Sequential jobs
 on: push
 jobs:
   first:

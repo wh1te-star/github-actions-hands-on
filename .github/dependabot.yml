@@ -4,3 +4,4 @@ updates:
     directory: /                      # パッケージマニフェストの配置先ディレクトリ
     schedule:                         # バージョンアップスケジュール
       interval: daily
+

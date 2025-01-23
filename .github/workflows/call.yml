@@ -17,3 +17,4 @@ jobs:
       - run: echo "Result> ${MESSAGE}"
         env:
           MESSAGE: ${{ needs.call.outputs.message }} # 出力値の参照
+

@@ -1,19 +1,10 @@
-name: Dynamic matrix
+name: Convert
 on: push
+env:
+  TIMEOUT: 1
 jobs:
-  prepare:
+  sleep:
     runs-on: ubuntu-latest
     steps:
-      - id: dynamic
-        run: | # マトリックス定義をJSON文字列で記述
-          json='{"runner": ["ubuntu-latest", "macos-latest"]}'
-          echo "json=${json}" >> "${GITHUB_OUTPUT}"
-    outputs:   # マトリックス定義のJSON文字列をジョブ出力値へセット
-      matrix-json: ${{ steps.dynamic.outputs.json }}
-  print:
-    needs: [prepare]
-    strategy:  # JSON文字列からfromJSON関数で動的にマトリックスを生成
-      matrix: ${{ fromJSON(needs.prepare.outputs.matrix-json) }}
-    runs-on: ${{ matrix.runner }}
-    steps:
-      - run: echo "${RUNNER_OS}"
+      - run: sleep 120
+        timeout-minutes: ${{ fromJSON(env.TIMEOUT) }} # string型をnumber型へ変換
